@@ -4,5 +4,5 @@ profile page
 picture
 story feature 
 edit details
-share to story
+share to story  
 search accounts
