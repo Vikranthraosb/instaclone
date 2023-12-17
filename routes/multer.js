@@ -8,7 +8,7 @@ const path = require('path'); // Deals with file paths
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     // Specify the folder where files will be saved
-    cb(null, './publics/images/uploads');
+    cb(null, './public/images/uploads')
   },
   filename: function (req, file, cb) {
     // Create a unique ID and combine it with the original filename

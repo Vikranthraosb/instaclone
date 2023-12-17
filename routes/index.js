@@ -19,8 +19,10 @@ router.get('/feed',isLogedin, function(req, res) {
   res.render('feed', {footer: true});
 });
 
-router.get('/profile',isLogedin, function(req, res) {
-  res.render('profile', {footer: true});
+router.get('/profile',isLogedin,async function(req, res) {
+  //below line finds the current user who is logged in 
+  const user =await userModel.findOne({username: req.session.passport.user});
+  res.render('profile', {footer: true,user});
 });
 
 router.get('/search',isLogedin, function(req, res) {
@@ -80,29 +82,22 @@ function isLogedin(req,res,next){
 res.redirect("/login")
 }
 // isLogedin- function code ends
-
+ 
 
 //'update' route start
 router.post("/update",upload.single('image'),async function(req,res){
 const user =await userModel.findOneAndUpdate(
   // these line will update username,name,bio
   {username: req.session.passport.user},
-  { username:req.body.username,
+  {username:req.body.username,
      name:req.body.name,
-    bio:req.body.bio
-  },
+    bio:req.body.bio},
   {new:true}
   );
   user.profileImage =req.file.filename; // thees lines will update profile pic
   await user.save();
-  res.redirect("/profile")
+  res.redirect("./profile")
 })
-
-
-
-
-
-
 
 
 

@@ -7,7 +7,7 @@ const userSchema =mongoose.Schema({
   name:String,
   email:String,
   password:String,
-  ProfileImg:String,
+  ProfileImage:String,
   posts:[{
     type:mongoose.Schema.Types.ObjectId,
     ref:"post"
@@ -15,4 +15,5 @@ const userSchema =mongoose.Schema({
 })
 
 userSchema.plugin(plm);
+ 
 module.exports =mongoose.model("user",userSchema);
