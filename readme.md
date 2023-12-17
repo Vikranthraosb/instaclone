@@ -20,5 +20,12 @@ STEPS FOLLOWED:-
 
 5- in index.js, first requires passport and passport-local stratergy.
 wrote passport.use code in starting
-wrote register, login codes (remember to give correct name, method, action in the form of login and register in ejs files)
+wrote register, login , logout code(remember to give correct name, method, action in the form of login and register in ejs files)
+
+6- write isLoggedin function(in index.js) for protected routes.
+
+7- created the multer.js file and wrote code for file storage purpose.
+also inside public-images, made another file "uploads".
+
+8
 
